@@ -4,7 +4,10 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        sh "echo build"
+        nodejs(nodeJSInstallationName: "Node 16.17.1") {
+          sh "yarn install"
+          sh "yarn build"
+        }
       }
     }
   }
